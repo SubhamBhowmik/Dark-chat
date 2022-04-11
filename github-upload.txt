@@ -1,0 +1,19 @@
+1.first open the folder then left click and open git bash here;
+ if yoyu want to remove version control 
+     rm -rf .git
+     rmdir .git
+   
+
+2.create a .gitignore file using -->   touch .gitignorr and type node_modules
+
+3. git init
+
+4.git add .
+
+5. git commit -m "hhhhhhh"
+
+6.git remote add origin -link of repo- without quotes or anything
+
+7.git push origin master
+
+
