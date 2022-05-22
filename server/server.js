@@ -4,13 +4,14 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Routes from './routes/Routes.js';
 import mongoose from 'mongoose'
-import http from "http"
-import {createServer} from 'http'
+import httpServer from 'http-server'
+
+import {Server, Socket} from 'socket.io';
 dotenv.config();
 const app = express();
 
-const PORT = 8000||process.env.PORT ;
-//const PORT1=9000||process.env.PORT1;
+
+const PORT=8000||process.env.PORT;
 const username=process.env.MONGO_USERNAME
 const password=process.env.MONGO_PASSWORD 
 const url1=`mongodb+srv://whatsappdatabase:${password}@cluster0.0uolw.mongodb.net/newcreated?retryWrites=true&w=majority`;
@@ -26,18 +27,13 @@ db.once('open',()=>{
 
 
 
-////socket
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+app.use('/', Routes);
+  app.listen(process.env.PORT || PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
 
-import { Server } from 'socket.io';
-
-const httpServer = createServer(app);
-const io = new Server(httpServer, {
-    cors: {
-        origin: 'http://localhost:3000',
-    }, 
-})
- 
-
+ const io = new Server(httpServer)
 let users = [];
 
 const addUser = (userId, socketId) => {
@@ -76,12 +72,3 @@ io.on('connection',  (socket) => {
         io.emit('getUsers', users);  
     })
 })
-
-
-app.use(bodyParser.json({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
-app.use('/', Routes);
-
-app.listen(process.env.PORT || PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
-// app.listen(9000||proces.env.PORT);

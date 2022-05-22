@@ -14,10 +14,11 @@ const useStyles = makeStyles({
         wordBreak: 'break-word'
     },
     own: {
-        background: '#dcf8c6',
+        background: '#2e3141',
         padding: 5,
         maxWidth: '60%',
         width: 'fit-content',
+        color:"white",
         marginLeft: 'auto',
         display: 'flex',
         borderRadius: 10,

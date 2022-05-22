@@ -5,18 +5,18 @@ import { useContext } from 'react';
 import Chatbox from './Chatbox';
 const useStyle=makeStyles({
     component:{
-      height:"100vh",
+      height:"10vh",
       background:"#dcdcdc"
     },
     loginheader:{
-        height:200,
-        background:'#00bfa5',
+        height:100,
+        background:'#030a32',
         boxShadow:'none'
 
     },
     header:{
-        height:115,
-        background:'#00bfa5',
+        height:100,
+        background:'#030a32',
         boxShadow:'none'
 
     }
@@ -31,7 +31,7 @@ const Messanger = () => {
     return (
         <Box className={classes.component}>
             <AppBar className={account?classes.header:classes.loginheader}>
-                <Toolbar></Toolbar>
+                <Toolbar style={{marginLeft:"40px"}}>       ** This is a chatapp developed by Subham Bhowmik.Its only for educational purpose,Dont share any personal information here.It is still in developing stage.</Toolbar>
             </AppBar>
          
          {

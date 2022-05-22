@@ -6,6 +6,7 @@ import Chat from './chat/Chat'
 import { useContext,useState } from 'react'
 import { UserContext } from '../context/Userprovider'
 import { breakpoints } from '@mui/system'
+import Empty from './chat/Empty'
 const useStyle=makeStyles(theme=>({
     component:{
 
@@ -13,27 +14,28 @@ const useStyle=makeStyles(theme=>({
         [theme.breakpoints.down('md')]:{
            flexDirection:"row"
         }
+
    },
    leftComponent:{
-      width:"40vw",
-   
+      width:"30vw",
+   },
    rightComponent:{
        
-       borderLeft:" 2 px solid rgba(0, 0, ,0, 0.14)",
+       borderLeft:"  px solid rgba(0, 0, ,0, 0.14)",
    
    },
  
-   }
+   
 }))
 const style = {
     loginPaper: {
-        height: "95%",
+        height: "98%",
         width: "91%",
         boxShadow: "none",
         borderRadius: "0%",
         maxHeight:"100%",
         maxWidth:"100%",
-        overflow:"heiiden"
+        overflow:"hidden"
        
     }
 }
@@ -44,14 +46,20 @@ const Chatbox = ({ classes }) => {
     const { person, setperson } = useContext(UserContext);
     return (
         <Dialog open={true} classes={{ paper: classes.loginPaper }}
-            BackdropProps={{ style: { background: "none" } }}>
+            BackdropProps={{ style: { background: "rgb(52 55 61 / 56%)" } }}>
             <Box className={classname.component}>
 
                   <Box className={classname.leftComponent}>
                   <Menu/>
                   </Box>
                   <Box className={classname.rightComponent} hidden={screen}>
-                     <Chat/>
+                     
+                         
+                            {
+                        Object.keys(person).length  ? <Chat/> : <Empty />
+                            }
+                         
+                   
                   </Box>
 
             </Box>

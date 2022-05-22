@@ -6,10 +6,10 @@ import Profile from './Profile';
 
 const usestyles = makeStyles({
     header: {
-        background: '#00bfa5',
+        background: 'rgb(39 44 51 / 97%)',
         height: '97px',
         display: 'flex',
-        color: "#fff",
+        color: "white",
         "&>*": {
             marginTop: 'auto',
             padding: '15px',

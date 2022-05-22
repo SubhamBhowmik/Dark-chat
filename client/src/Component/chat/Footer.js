@@ -6,14 +6,14 @@ import { Box, makeStyles, InputBase } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     footer: {
-        height: '55px',
+        height: '90px',
         background: '#ededed',
         // position: 'absolute',
         width: '100%',
         bottom: 0,
         display: 'flex',
         alignItems: 'center',
-        padding: '0 15px',
+        padding: '0 0px',
         '&  >*': {
             margin: 5,
             color: '#919191'
@@ -47,7 +47,7 @@ const Footer = ({ sendText, value, setValue }) => {
                 <AttachFile className={classes.clipIcon} />
                 <Box className={classes.search}>
                     <InputBase
-                        placeholder="Type a message"
+                        placeholder="Type a message and press enter to send the message"
                         classes={{
                             root: classes.inputRoot,
                             input: classes.inputInput,

@@ -6,8 +6,8 @@ import { InputBase } from '@material-ui/core';
 
 const usestyle = makeStyles((theme)=>({
     component: {
-        background: '#F6F6F6',
-        height: 43,
+        background: 'rgb(39 44 51 / 97%)',
+        height: 38,
         display: 'flex',
         alignItems: 'center',
         transition: 'box-shadow .18s ease-out,background-color .25s ease-out'
@@ -20,7 +20,7 @@ const usestyle = makeStyles((theme)=>({
         width: '100%'
       },
       searchIcon: {
-        color: '#919191',
+        color: 'black',
         padding: theme.spacing(0, 2),
         height: '100%',
         position: 'absolute',

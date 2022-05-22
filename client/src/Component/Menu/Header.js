@@ -10,7 +10,7 @@ const useStyles=makeStyles({
     header:{
         display:'flex',
         height:"35px",
-        background:"#ededed",
+        background:"rgb(39 44 51 / 97%)",
         padding:'10px',
         alignItems:'center'
     },

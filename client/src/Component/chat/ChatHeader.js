@@ -7,20 +7,22 @@ import { UserContext } from '../../context/Userprovider';
 const useStyles = makeStyles({
     header: {
         width:'920px',
-        height: 35,
-        background: '#ededed',
+        height: 23,
+         background: 'rgb(39 44 51 / 97%)',
+       
         display: 'flex',
         padding: '10px 16px',
         alignItems: 'center'
     },
     displayPicture: {
         width: 37,
-        height: 37,
+        height: 35,
         objectFit: 'cover',
         borderRadius: '50%',
         padding: '0 2px'
     },
     name: {
+        color:"white",
         marginLeft: 10
     },
     rightContainer: {

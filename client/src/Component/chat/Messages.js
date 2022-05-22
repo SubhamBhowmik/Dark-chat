@@ -4,11 +4,14 @@ import Footer from './Footer'
 import Message from './Message';
 import { AccountContext } from '../../context/AccountProvider';
 import {newMessages,getMessages} from '../../service/api.js'
+import socketIo from 'socket.io-client';
+
 const useStyles = makeStyles({
     wrapper: {
-        backgroundImage: `url(${'https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'})`,
+        //const link https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png
+        backgroundImage: `url(${'https://images.unsplash.com/photo-1449156733864-dd5471bb7427?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070'})`,
         // height: 'calc(100% - 114px)',
-        backgroundSize: '20%'
+        backgroundSize: '100%'
     },
     footer: {
         height: '55px',
@@ -22,7 +25,7 @@ const useStyles = makeStyles({
         overflowY: 'scroll'
     },
     container: {
-        padding: '1px 80px'
+        padding: '8px 80px'
     }
 })
 
@@ -36,8 +39,13 @@ const Messages = ({person,conversation}) => {
     const [messages, setMessages] = useState([]);
     const [incomingMessage, setIncomingMessage] = useState(null);
     const { account, socket, newMessageFlag, setNewMessageFlag } = useContext(AccountContext);
+  //  const { account, newMessageFlag, setNewMessageFlag } = useContext(AccountContext);
+
     useEffect(() => {
-        
+    
+          
+          
+     
         socket.current.on('getMessage', data => {
             setIncomingMessage({
                 sender: data.senderId,
